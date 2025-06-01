@@ -1,0 +1,69 @@
+body {
+  background-color: #f4f4f4;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.envelope-container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.envelope {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  transition: transform 1s ease-in-out;
+}
+
+.flap {
+  width: 100%;
+  height: 50%;
+  background-color: #e0a96d;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top;
+  transition: transform 1s ease-in-out;
+}
+
+.body {
+  width: 100%;
+  height: 100%;
+  background-color: #f4d9a3;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.letter {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 80%;
+  height: auto;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  z-index: 1;
+}
+
+.open .flap {
+  transform: rotateX(-180deg);
+}
+
+.open .letter {
+  transform: translateY(0%);
+  opacity: 1;
+}
